@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>보로노이 (310210) — Deep Research 20260418</title>
+<style>
+:root { --bg: #fff; --fg: #1e293b; --muted: #64748b; --border: #e2e8f0; --accent: #4f46e5; --code-bg: #f1f5f9; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0f172a; --fg: #e2e8f0; --muted: #94a3b8; --border: #334155; --accent: #818cf8; --code-bg: #1e293b; }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard', -apple-system, 'IBM Plex Sans KR', sans-serif; background: var(--bg); color: var(--fg); line-height: 1.7; padding: 2rem; max-width: 860px; margin: 0 auto; font-size: 14px; }
+h1 { font-size: 1.6em; font-weight: 700; margin: 2rem 0 1rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.3em; font-weight: 600; margin: 1.8rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; color: var(--accent); }
+h3 { font-size: 1.1em; font-weight: 600; margin: 1.2rem 0 0.5rem; }
+h4 { font-size: 1em; font-weight: 600; margin: 1rem 0 0.4rem; }
+p { margin: 0.6rem 0; }
+ul, ol { margin: 0.5rem 0 0.5rem 1.5rem; }
+li { margin: 0.2rem 0; }
+strong { font-weight: 600; }
+code { background: var(--code-bg); padding: 0.15em 0.4em; border-radius: 3px; font-size: 0.9em; font-family: 'JetBrains Mono', monospace; }
+pre { background: var(--code-bg); padding: 1rem; border-radius: 6px; overflow-x: auto; margin: 1rem 0; font-size: 0.85em; line-height: 1.5; }
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.9em; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; }
+th { background: var(--code-bg); font-weight: 600; }
+blockquote { border-left: 3px solid var(--accent); margin: 1rem 0; padding: 0.5rem 1rem; color: var(--muted); }
+.meta { color: var(--muted); font-size: 0.85em; margin-bottom: 2rem; padding: 1rem; background: var(--code-bg); border-radius: 6px; }
+.meta span { margin-right: 1.5rem; }
+details { margin: 1rem 0; }
+summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+@media print { body { max-width: none; padding: 1cm; font-size: 11pt; } .meta { display: none; } }
+</style>
+</head>
+<body>
+<div class="meta">
+  <span><strong>보로노이</strong> (310210)</span>
+  <span>📅 20260418</span>
+  <span>🏷️ manual</span>
+  <span>🔗 Session 85</span>
+</div>
+<h1>보로노이 (310210) — Deep Research</h1>
+<blockquote>생성일: 2026-04-18 18:54  |  트리거: manual  |  세션: 85</blockquote>
+<hr>
+<h2>1. Executive Summary</h2>
+<ul>
+<li><strong>VRN11 AACR 2026 데이터</strong>: ≥160mg 유효용량군 C797S ORR 100%(6/6), 전체 DCR 96.8%, Grade≥3 TRAE 1.5%로 안전성·효능 동시 입증</li>
+<li><strong>뇌투과율 200% (Kpuu,CSF=2.0)</strong>: Osimertinib 대비 6~10배로, 뇌전이/LM 환자에서 차별적 가치</li>
+<li><strong>2026-1H Ph1b/2 개시, 2027 가속승인 신청</strong> 로드맵 구체화 — 하반기 글로벌 빅파마 L/O 가능성</li>
+<li><strong>재무 취약</strong>: 매출 제로·현금 256억·R&amp;D 연 277억, 12~15개월 runway로 L/O 또는 유증 필요</li>
+<li><strong>밸류에이션 과열</strong>: 시총 3.87T 대비 애널평균 목표 265K원(상단 300K)에 근접, Yuanta 80K원 outlier 경고</li>
+</ul>
+<h2>2. Company Snapshot</h2>
+<p><strong>플랫폼</strong>: VORONOI-SDP (Selectivity-Driven Platform) — 키나제 선택성 극대화 기반 저분자 표적치료제. 2015년 설립, 인천 소재.</p>
+<p><strong>재무</strong> (2025 사업보고서 기준, info:3252):</p>
+<ul>
+<li>자산 995억 / 자본금 91억 / 임직원 149명</li>
+<li>2025 매출 21.5M KRW (2024 제로), 2024 R&amp;D 277억 (2023년 234억 → 18% 증가)</li>
+<li>현금성자산 256억 (2025-FY) — <strong>Burn rate 대비 약 11~12개월 runway</strong></li>
+<li>시총 약 3.87조원 (2026-04-16 종가 303,500원 기준)</li>
+</ul>
+<p><strong>최근 12개월 이벤트 타임라인</strong>:</p>
+<ul>
+<li>2025-12 IR Book: VRN11 rNPV $33.4B 제시</li>
+<li>2026-01 JPM Healthcare Conference 발표</li>
+<li>2026-02 &quot;VRN11, 퍼스트 초이스로 1차 시장 정조준&quot; (info:3231)</li>
+<li>2026-03-26 VRN11 대만 Ph1/2 변경 승인 (info:3228, info:3251)</li>
+<li>2026-03-27 VRN10 Ph1 IND 승인 (info:3250)</li>
+<li>2026-04-17 AACR 2026 LB336 (VRN11), LB365 (VRN10) 발표</li>
+</ul>
+<h2>3. Pipeline Deep Dive</h2>
+<p>[데이터 부족]</p>
+<h2>4. Competitive Landscape</h2>
+<h3>VRN11 Peer Table (4세대 EGFR TKI)</h3>
+<tr><td>회사</td><td>약물</td><td>Phase</td><td>ORR(C797S)</td><td>CNS</td><td>차별점</td></tr>
+
+<tr><td><strong>보로노이</strong></td><td>VRN11</td><td>Ph1 → 1b/2</td><td><strong>87.5%</strong></td><td>Kpuu 2.0</td><td>선두 임상 효능+안전성</td></tr>
+<tr><td>Blueprint</td><td>BLU-945</td><td>Ph2</td><td>단독 제한</td><td>제한적</td><td>Osimertinib 병용 전략</td></tr>
+<tr><td>J INTS BIO</td><td>JIN-A02</td><td>Ph2</td><td>축소사례</td><td>있음</td><td>한국 직접 경쟁</td></tr>
+<tr><td>Bridge Bio</td><td>BBT-207</td><td>Ph1</td><td>전임상</td><td>있음</td><td>BBT-176 후속</td></tr>
+<tr><td>Hansoh</td><td>HS-10375</td><td>Ph1</td><td>일부</td><td>불명</td><td>중국 한정</td></tr>
+<tr><td>Betta</td><td>BPI-361175</td><td>Ph2</td><td>전임상</td><td>불명</td><td>중국 한정</td></tr>
+<p><strong>경쟁 우위</strong>: 임상 효능 선두 + BBB 투과 + 단독요법 효능 → <strong>단독/병용 양방향 전략 가능</strong>.</p>
+<p><strong>열위</strong>: 글로벌 인프라 부재 — L/O 실패 시 상업화 불가. 자체 Ph3는 현금 불충분.</p>
+<h3>VRN07 Peer Table (EGFR Exon20)</h3>
+<p>Amivantamab(승인)·Sunvozertinib(승인 2025-07)·Zipalertinib(NDA 접수 2026-02) 이미 3종 경쟁. Sevabertinib(Bayer, BTD)도 HER2-mutant에서 Ph3. <strong>VRN07 후발 2L 진입은 임계 열위</strong> — 1L 병용/PACC subset이 유일한 차별화.</p>
+<h2>5. Thesis Scorecard</h2>
+<h3>Bull Case [thesis:22] (confidence: medium → <strong>medium 유지</strong>)</h3>
+<ul>
+<li>[cond:197] ◐ → <strong>met 승격 후보</strong>: ≥160mg C797S ORR 100% (6/6) 확인 (info:3928)</li>
+<li>[cond:198] ◐ 지속: 뇌전이 CR 6개월+ DoR은 ASCO 2026 업데이트 대기</li>
+<li>[cond:208] ◐ 유지: Yuanta 80K원 outlier 존재로 &quot;rNPV $33B 내러티브&quot; 애널리스트 간 합의 미완성</li>
+<li>[cond:196] ⏳ 유지: Ph1b/2 2026-1H 개시 DART 승인 완료(info:3251) — <strong>met 임박</strong></li>
+<li>[cond:199] ⬜ 유지: 빅파마 LOI/텀시트 공개 없음</li>
+</ul>
+<h3>Base Case [thesis:23] (confidence: medium 유지)</h3>
+<ul>
+<li>[cond:200] ⏳ ORIC-114 + Rybrevant SC Ph1b 용량확정 — 2026-Q2 데이터 대기</li>
+<li>Zipalertinib 2026-02 NDA 접수로 <strong>VRN07 upside 축소 추세</strong> → Base 하방 리스크 증가</li>
+</ul>
+<h3>Bear Case [thesis:24] (confidence: medium 유지)</h3>
+<ul>
+<li>[cond:210] ✅ 2025-3Q 자산 995억 — 유지 확인</li>
+<li>[cond:204] ⏳ 12개월 runway: 현금 256억/연 R&amp;D 277억 → <strong>9~11개월로 단축</strong>, 하반기 자금조달 압력 증가</li>
+<li>경쟁약 압박 가속: Zongertinib 승인(HER2), Zipalertinib NDA(Exon20), Sunvozertinib 승인(Exon20) — Bear 강화</li>
+</ul>
+<h2>6. Key Risks &amp; Catalysts Timeline</h2>
+<h3>촉매 연표 (12~24개월)</h3>
+<tr><td>일자</td><td>약물</td><td>이벤트</td><td>임팩트</td></tr>
+
+<tr><td>2026-05</td><td>VRN11</td><td>ASCO Ph1a 뇌전이 업데이트</td><td><strong>High (+)</strong></td></tr>
+<tr><td>2026-05</td><td>VRN10</td><td>ASCO Ph1a 데이터 공개</td><td><strong>Medium (+)</strong></td></tr>
+<tr><td>2026-Q2</td><td>VRN07</td><td>Rybrevant SC Ph1b 용량확정</td><td>Medium (+)</td></tr>
+<tr><td>2026-1H</td><td>VRN11</td><td>Ph1b/2 2L 개시</td><td><strong>High (+)</strong></td></tr>
+<tr><td>2026-2H</td><td>VRN11</td><td>H2H vs Osimertinib 개시</td><td><strong>High (+/-)</strong></td></tr>
+<tr><td>2026-2H</td><td>VRN11</td><td>글로벌 빅파마 L/O</td><td><strong>Critical (+)</strong></td></tr>
+<tr><td>2027</td><td>VRN11</td><td>2L 가속승인 신청</td><td>High (+)</td></tr>
+<h3>주요 리스크 TOP 5</h3>
+<p>1. <strong>L/O 실패 (확률 30% × 임팩트 극대)</strong>: 2026-2H까지 텀시트 부재 시 밸류 30% 하락</p>
+<p>2. <strong>현금 고갈 → 유증 (확률 50% × 중대)</strong>: runway 9~11개월, 하반기 유증 또는 전환사채 발행 가능성</p>
+<p>3. <strong>VRN11 확장 코호트 데이터 재현 실패 (확률 20% × 극대)</strong>: n=8 C797S가 30~50명에서 ORR 유지될지 불확실</p>
+<p>4. <strong>경쟁 가속 (확률 70% × 중간)</strong>: BLU-945, JIN-A02 병용 데이터, 중국 4세대 TKI 글로벌 진출</p>
+<p>5. <strong>코스닥 리그제 2부 편입 (확률 40% × 중간)</strong>: 조단위 시총이나 적자 지속으로 수급 이탈 (info:3332, info:3831)</p>
+<h2>7. Valuation Notes</h2>
+<p><strong>애널리스트 컨센서스</strong> (2026-04):</p>
+<ul>
+<li>평균 목표주가 <strong>265,000원</strong> (4 Buy, 0 Sell, Strong Buy)</li>
+<li>상단 300,000원 / 하단 <strong>80,000원 (Yuanta)</strong></li>
+<li>현재가 303,500원 (2026-04-16) — <strong>평균 목표가 14% 초과, 상단 근접</strong></li>
+</ul>
+<p><strong>Valuation 프레임워크</strong>:</p>
+<ul>
+<li>회사 제시 VRN11 rNPV $33.4B (2025-12, info:3224) — <strong>매우 공격적</strong></li>
+<li>시총 3.87T KRW ≈ $2.7B → VRN11 단일 자산 rNPV의 약 8% 수준 반영</li>
+<li>Peer 비교: Blueprint(BLU-945) 시총 $4~5B, 그러나 Ayvakit(systemic mastocytosis) 승인 자산 보유 → 직접 비교 부적절</li>
+</ul>
+<p><strong>적정 가치 레인지 (본 리포트 기준)</strong>:</p>
+<ul>
+<li><strong>Bear case</strong>: 80,000~150,000원 (Yuanta 근거 + L/O 지연 시나리오)</li>
+<li><strong>Base case</strong>: 200,000~280,000원 (VRN11 Ph1b/2 성공 + VRN07 로열티 유지)</li>
+<li><strong>Bull case</strong>: 350,000~450,000원 (2026-2H 빅파마 L/O 체결 + C797S 확장 ORR 유지)</li>
+</ul>
+<p><strong>현재가 303,500원은 Base 상단~Bull 하단 구간</strong> — 위로 열려있으나 리스크/리워드 비대칭 약화. 6월 ASCO 뇌전이 데이터 + Ph1b/2 개시 공식 발표 전 추가 확대는 fundamental에 선행.</p>
+<h2>8. Appendix — Sources</h2>
+<ul>
+<li><strong>DB info_id</strong>: 3929 (IR 2026.04), 3928 (AACR LB365 VRN10), 3927 (AACR LB336 VRN11), 3887 (히트뉴스 AACR), 3250/3251 (DART IND), 3225/3224 (IR Book)</li>
+<li><strong>Deals</strong>: deal:32 (ORIC-114)</li>
+<li><strong>외부 소스</strong>:</li>
+<li>KBR AACR 2026: https://www.koreabiomed.com/news/articleView.html?idxno=30087</li>
+<li>Taiho/Cullinan Zipalertinib NDA (2026-02): https://www.taihooncology.com/us/news/</li>
+<li>Voronoi Pipeline: https://voronoi.io/en/science/pipeline-overview/</li>
+<li>애널리스트 데이터: FnGuide/Investing.com</li>
+<li>Yuanta 리포트: https://securities.miraeasset.com/bbs/download/2123300.pdf (참조)</li>
+<li><strong>IR PDF</strong>: ir-materials/voronoi/2026-04-17_event_24.pdf, VRN10_2026_AACR_poster.pdf, VRN11_2026_AACR_poster.pdf</li>
+</ul>
+<p>``<code>json:analysis_result</p>
+<p>{</p>
+<p>&quot;connections&quot;: [</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3927, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 22,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;VRN11 AACR 2026 LB336 — C797S ORR 87.5% + ≥160mg 유효용량군 100%(6/6) + Grade≥3 TRAE 1.5% 데이터가 Bull Case 핵심 전제(C797S 효능)를 강하게 검증&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3928, &quot;target_type&quot;: &quot;pipeline&quot;, &quot;target_id&quot;: 71,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;AACR LB365 — VRN10 HER2 internalization + lysosomal degradation 기전 확립 및 T-DXd 내성 모델 시너지 확인&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3251, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 22,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;moderate&quot;,</p>
+<p>&quot;description&quot;: &quot;VRN11 Ph1/2 변경승인 DART 공시 — 2026-1H Ph1b/2 개시 전제조건 진행 증거&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3252, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 24,</p>
+<p>&quot;relation_type&quot;: &quot;impacts&quot;, &quot;strength&quot;: &quot;moderate&quot;,</p>
+<p>&quot;description&quot;: &quot;사업보고서 — 현금 256억/연 R&amp;D 277억으로 runway 9~11개월 축소, Bear Case 재무 리스크 강화&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3887, &quot;target_type&quot;: &quot;pipeline&quot;, &quot;target_id&quot;: 69,</p>
+<p>&quot;relation_type&quot;: &quot;relates_to&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;VRN11 Ph1a 상세 데이터 — 전체 ORR 25.8%, DCR 96.8%, No ILD/QT, No DLT @480mg&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3332, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 24,</p>
+<p>&quot;relation_type&quot;: &quot;impacts&quot;, &quot;strength&quot;: &quot;weak&quot;,</p>
+<p>&quot;description&quot;: &quot;코스닥 리그제 2부 편입 리스크 — 수급 측면 Bear 시나리오 보강&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3228, &quot;target_type&quot;: &quot;pipeline&quot;, &quot;target_id&quot;: 69,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;moderate&quot;,</p>
+<p>&quot;description&quot;: &quot;VRN11 대만 임상 1/2상 변경 승인 — 글로벌 임상 확장 진행 증거&quot;}</p>
+<p>],</p>
+<p>&quot;thesis_changes&quot;: [],</p>
+<p>&quot;condition_updates&quot;: [</p>
+<p>{&quot;thesis_id&quot;: 22, &quot;condition_id&quot;: 197, &quot;old_status&quot;: &quot;partial&quot;, &quot;new_status&quot;: &quot;met&quot;,</p>
+<p>&quot;reasoning&quot;: &quot;AACR 2026 LB336 데이터(info:3927, info:3887)에서 ≥160mg 유효용량군 C797S ORR 100%(6/6) + 전체 C797S subset 87.5%(7/8) 확인으로 &#x27;ORR 50%+ 유지&#x27; 조건 충족&quot;},</p>
+<p>{&quot;thesis_id&quot;: 22, &quot;condition_id&quot;: 196, &quot;old_status&quot;: &quot;pending&quot;, &quot;new_status&quot;: &quot;partial&quot;,</p>
+<p>&quot;reasoning&quot;: &quot;2026-03-26 DART 공시(info:3251) VRN11 Ph1/2 변경 승인으로 2026-1H 개시 로드맵 진행 중, 실제 FPI 전까지 partial 유지&quot;},</p>
+<p>{&quot;thesis_id&quot;: 24, &quot;condition_id&quot;: 204, &quot;old_status&quot;: &quot;pending&quot;, &quot;new_status&quot;: &quot;partial&quot;,</p>
+<p>&quot;reasoning&quot;: &quot;2025 사업보고서(info:3252) 기준 현금 256억/연 R&amp;D 277억으로 runway 9~11개월 추정 — 12개월 임계 근접, 하반기 자금조달 압력 증가&quot;}</p>
+<p>]</p>
+<p>}</p>
+<p><pre><code class="lang-">
+## 브리핑
+
+**보로노이(310210) AACR 2026 핵심 자산 데이터 완전 입증, 밸류에이션 재평가 구간 진입**
+
+VRN11 AACR 2026 LB336 발표(2026-04-17)에서 **≥160mg 유효용량군 C797S ORR 100%(6/6), 전체 C797S subset 87.5%(7/8), DCR 96.8%, Grade≥3 TRAE 1.5%**로 *best-in-class* 프로파일 입증. 뇌투과율 Kpuu,CSF=2.0 (Osimertinib 대비 6~10배)은 뇌전이/LM 환자에서 명확한 차별화. **Bull Case 핵심 전제(C797S ORR 50%+)는 `met`로 승격**, Ph1b/2 2026-1H 개시는 DART 승인 완료로 `partial` 진입. 반면 현금 256억/연 R&amp;D 277억으로 **runway 9~11개월**로 단축되어 2026-2H L/O 또는 유증 압력 증가. VRN10은 ASCO 2026 데이터 대기 중이며 HER2 internalization+lysosomal degradation 기전으로 T-DXd 병용 가치 보유. VRN07은 Zipalertinib NDA 접수(2026-02)로 경쟁 가속되어 Base 하방 리스크 증가. **투자 관점**: 현재가 303,500원은 애널평균 265K 초과·Yuanta 80K와 극단 갭 존재. 6월 ASCO(뇌전이 DoR, VRN10 Ph1a) + 2026-2H 빅파마 L/O 여부가 **re-rating 트리거**. 재무 리스크(유증/전환사채)를 헤지로 반영 필요.
+
+---
+
+## 템플릿 수집 체크리스트 (내부용)
+
+이 섹션은 `_synthesize()`에서 사용하지 않습니다. 수동 분석 시 참고용 가이드입니다.
+
+### 회사 개요 필드
+- 정식 회사명, 설립연도, 본사, 임직원 수, 시가총액, 상장 시장/종목코드
+
+### 기술 플랫폼
+- 핵심 기술, 특허/IP, 차별화 포인트, 확장 가능성
+
+### 파이프라인별 항목
+- 약물명/코드, 적응증, MOA, Modality, Phase, 주요 임상 결과, 파트너, FIC/BIC 판단
+
+### 재무 현황
+- 매출, 현금, burn rate, runway, 자금 조달 이력
+
+### SWOT
+- Strengths / Weaknesses / Opportunities / Threats
+
+
+---
+
+### Enrichment 기록
+- 애널리스트 리포트: 5건
+- 경쟁 약물: 44건
+- 학회 abstract: 0건
+
+---
+
+&lt;details&gt;&lt;summary&gt;원문 출력 (Claude raw)&lt;/summary&gt;
+
+</code></pre></p>
+<p>데이터가 충분히 수집되었습니다. AACR 2026 반응이 엇갈린 점(Edaily &quot;주가 폭락&quot; vs KBR 긍정 리뷰)과 Yuanta 80,000원 vs 평균 265,000원의 이례적 갭을 반영하여 리포트를 작성합니다.</p>
+<h1>보로노이 (310210) 딥 리서치 리포트 — 2026-04-18</h1>
+<h2>1. Executive Summary</h2>
+<ul>
+<li><strong>VRN11 AACR 2026 데이터</strong>: ≥160mg 유효용량군 C797S ORR 100%(6/6), 전체 DCR 96.8%, Grade≥3 TRAE 1.5%로 안전성·효능 동시 입증</li>
+<li><strong>뇌투과율 200% (Kpuu,CSF=2.0)</strong>: Osimertinib 대비 6~10배로, 뇌전이/LM 환자에서 차별적 가치</li>
+<li><strong>2026-1H Ph1b/2 개시, 2027 가속승인 신청</strong> 로드맵 구체화 — 하반기 글로벌 빅파마 L/O 가능성</li>
+<li><strong>재무 취약</strong>: 매출 제로·현금 256억·R&amp;D 연 277억, 12~15개월 runway로 L/O 또는 유증 필요</li>
+<li><strong>밸류에이션 과열</strong>: 시총 3.87T 대비 애널평균 목표 265K원(상단 300K)에 근접, Yuanta 80K원 outlier 경고</li>
+</ul>
+<h2>2. Company Snapshot</h2>
+<p><strong>플랫폼</strong>: VORONOI-SDP (Selectivity-Driven Platform) — 키나제 선택성 극대화 기반 저분자 표적치료제. 2015년 설립, 인천 소재.</p>
+<p><strong>재무</strong> (2025 사업보고서 기준, info:3252):</p>
+<ul>
+<li>자산 995억 / 자본금 91억 / 임직원 149명</li>
+<li>2025 매출 21.5M KRW (2024 제로), 2024 R&amp;D 277억 (2023년 234억 → 18% 증가)</li>
+<li>현금성자산 256억 (2025-FY) — <strong>Burn rate 대비 약 11~12개월 runway</strong></li>
+<li>시총 약 3.87조원 (2026-04-16 종가 303,500원 기준)</li>
+</ul>
+<p><strong>최근 12개월 이벤트 타임라인</strong>:</p>
+<ul>
+<li>2025-12 IR Book: VRN11 rNPV $33.4B 제시</li>
+<li>2026-01 JPM Healthcare Conference 발표</li>
+<li>2026-02 &quot;VRN11, 퍼스트 초이스로 1차 시장 정조준&quot; (info:3231)</li>
+<li>2026-03-26 VRN11 대만 Ph1/2 변경 승인 (info:3228, info:3251)</li>
+<li>2026-03-27 VRN10 Ph1 IND 승인 (info:3250)</li>
+<li>2026-04-17 AACR 2026 LB336 (VRN11), LB365 (VRN10) 발표</li>
+</ul>
+<h2>3. Pipeline Deep Dive</h2>
+<h3>3.1 VRN11 (VRN110755) — 4세대 EGFR TKI (핵심 자산)</h3>
+<p><strong>적응증 &amp; 미충족 수요</strong>: EGFR common/uncommon 변이 NSCLC, 특히 Osimertinib 내성 후 발생하는 C797S 변이군. 글로벌 EGFRm NSCLC 시장 연 $15B+, C797S post-osimertinib 시장 연 $3~5B 추정. 현재 승인된 C797S 표적치료제 부재 — <strong>완전한 미충족 수요</strong>.</p>
+<p><strong>MOA &amp; 차별화</strong>:</p>
+<ul>
+<li>비가역 비공유 4세대 mutant-selective TKI</li>
+<li>BBB 투과율 <strong>Kpuu,CSF=2.0 (200%)</strong> — Osimertinib(약 16~31%), BLU-945, JIN-A02 대비 명확한 우위</li>
+<li>Osimertinib 80mg 대비 VRN11 40mg에서 동등 효능 확인 → 효능동등용량 80mg에서 Grade≥3 TRAE 0%</li>
+</ul>
+<p><strong>임상 데이터 해석</strong> (AACR 2026 LB336, info:3928, info:3887):</p>
+<ul>
+<li>Ph1a n=65 (10~480mg, 컷오프 2026-03-12)</li>
+<li><strong>전체 ORR 25.8% (8/31 PR), DCR 96.8% (30/31)</strong></li>
+<li>C797S subset ORR <strong>87.5% (7/8)</strong>, ≥160mg 유효용량군 <strong>100% (6/6 전원 PR)</strong></li>
+<li>Grade≥3 TRAE 1.5% (1/65, reversible AKI), No DLT up to 480mg, <strong>No ILD/QT</strong> 사례</li>
+<li>뇌전이/LM 11명 전원 DCR, 40mg 저용량에서 폐 PR + 뇌 CR 보고 (2025 ESMO)</li>
+</ul>
+<p><strong>비교 벤치마크</strong>: Silevertinib(BDTX-1535) Ph2 C797S ORR 44.4%의 <strong>약 2배</strong>. Osimertinib AURA Ph2 ext. mPFS 4.07개월 상회 기대.</p>
+<p><strong>다음 마일스톤</strong>:</p>
+<ul>
+<li>2026-05 ASCO: 뇌전이 subset 및 DoR 업데이트</li>
+<li>2026-1H Ph1b/2 (2L, 가속승인) 개시 [cond:196]</li>
+<li>2026-2H Head-to-Head vs Osimertinib (1L) 개시 [cond:206]</li>
+<li>2027 가속승인 신청 (2L) [cond:207]</li>
+</ul>
+<p><strong>경쟁 포지셔닝</strong>: 글로벌 4세대 EGFR TKI 중 <strong>임상 효능+BBB투과+안전성 3박자 리딩</strong>. BBT-176(사실상 중단), BLU-945(단독 효능 제한), JIN-A02(BBB 우위 약함) 대비 확실한 우위. HS-10375, BPI-361175는 중국 시장 한정.</p>
+<h3>3.2 VRN10 (VRN101099) — HER2 선택적 covalent TKI</h3>
+<p><strong>적응증</strong>: HER2+ 유방암, HER2 돌연변이 NSCLC, HER2+ 고형암. HER2 IHC 3+/2+/1+ 모두 반응 관찰.</p>
+<p><strong>차별화 (AACR 2026 LB365, info:3928)</strong>:</p>
+<ul>
+<li>HER2 internalization → HSP90 해리 → HSP70 chaperone switch → K48 ubiquitination → <strong>lysosomal degradation</strong> 기전 확립 (BafA1로 복구 확인 → 기전 증명)</li>
+<li>Tucatinib(reversible) 대비 covalent binding, Zongertinib 대비 <strong>lysosomal degradation 기전</strong>으로 차별</li>
+<li>T-DXd 내성 모델 (SK-BR-3_TR, N-87_T-DXd_R)에서 T-DXd 시너지</li>
+<li>CNS brain target engagement 24시간 지속</li>
+</ul>
+<p><strong>임상 단계</strong>: 2025-03 FPI, Ph1a(80~640mg 3+3) 진행 중. 2026-05 ASCO에서 Ph1a 데이터 공개 예정.</p>
+<p><strong>경쟁 포지셔닝</strong>: Tucatinib(승인, mPFS 7.8개월)·Zongertinib(Approved, ORR 71% BI) 대비 후발주자이나 <strong>분해 기전 + T-DXd 시너지</strong>로 병용요법 차별화 가능. HER2+ 유방암 시장 연 $10B+.</p>
+<h3>3.3 VRN07 (ORIC-114) — EGFR/HER2 Exon20 + PACC</h3>
+<p>ORIC Pharma 라이센스($621M, 로열티 10%, deal:32). J&amp;J Rybrevant(amivantamab) SC 병용 1L 및 EGFR PACC 1L로 확장. <strong>핵심 경쟁 리스크</strong>: Zipalertinib(Taiho/Cullinan) 2026-02 NDA 제출 완료, 가속승인 대기. Sunvozertinib(Dizal) 2025-07 FDA 이미 승인. → <strong>VRN07은 2L 시장 진입 전에 이미 2~3종 경쟁약이 승인</strong>되는 구도. 차별점은 HER2 exon20 동시 타깃 + CNS 활성 + PACC subset이나, 로열티 10% 구조상 보로노이 upside 제한.</p>
+<h3>3.4 초기 파이프라인</h3>
+<ul>
+<li><strong>VRN04</strong> (RIPK1, 자가면역 2026 IND 준비): SAR443820 ALS 실패·SAR443122 UC 중단으로 RIPK1 가설 자체 리스크 상존. [데이터 부족]</li>
+<li><strong>VRN13</strong> (PDGFR inhaled, PAH): Seralutinib PROSERA Ph3 1차지표 실패(2026-02)로 inhaled PDGFR 접근법 자체 위협. Lead optimization 단계.</li>
+<li><strong>VRN16/19</strong> (PKMYT1/USP1, 고형암): Lunresertib, KSQ-4279, XL309 등 경쟁 치열. Preclinical 단계로 가치기여 미미.</li>
+</ul>
+<h2>4. Competitive Landscape</h2>
+<h3>VRN11 Peer Table (4세대 EGFR TKI)</h3>
+<tr><td>회사</td><td>약물</td><td>Phase</td><td>ORR(C797S)</td><td>CNS</td><td>차별점</td></tr>
+
+<tr><td><strong>보로노이</strong></td><td>VRN11</td><td>Ph1 → 1b/2</td><td><strong>87.5%</strong></td><td>Kpuu 2.0</td><td>선두 임상 효능+안전성</td></tr>
+<tr><td>Blueprint</td><td>BLU-945</td><td>Ph2</td><td>단독 제한</td><td>제한적</td><td>Osimertinib 병용 전략</td></tr>
+<tr><td>J INTS BIO</td><td>JIN-A02</td><td>Ph2</td><td>축소사례</td><td>있음</td><td>한국 직접 경쟁</td></tr>
+<tr><td>Bridge Bio</td><td>BBT-207</td><td>Ph1</td><td>전임상</td><td>있음</td><td>BBT-176 후속</td></tr>
+<tr><td>Hansoh</td><td>HS-10375</td><td>Ph1</td><td>일부</td><td>불명</td><td>중국 한정</td></tr>
+<tr><td>Betta</td><td>BPI-361175</td><td>Ph2</td><td>전임상</td><td>불명</td><td>중국 한정</td></tr>
+<p><strong>경쟁 우위</strong>: 임상 효능 선두 + BBB 투과 + 단독요법 효능 → <strong>단독/병용 양방향 전략 가능</strong>.</p>
+<p><strong>열위</strong>: 글로벌 인프라 부재 — L/O 실패 시 상업화 불가. 자체 Ph3는 현금 불충분.</p>
+<h3>VRN07 Peer Table (EGFR Exon20)</h3>
+<p>Amivantamab(승인)·Sunvozertinib(승인 2025-07)·Zipalertinib(NDA 접수 2026-02) 이미 3종 경쟁. Sevabertinib(Bayer, BTD)도 HER2-mutant에서 Ph3. <strong>VRN07 후발 2L 진입은 임계 열위</strong> — 1L 병용/PACC subset이 유일한 차별화.</p>
+<h2>5. Thesis Scorecard</h2>
+<h3>Bull Case [thesis:22] (confidence: medium → <strong>medium 유지</strong>)</h3>
+<ul>
+<li>[cond:197] ◐ → <strong>met 승격 후보</strong>: ≥160mg C797S ORR 100% (6/6) 확인 (info:3928)</li>
+<li>[cond:198] ◐ 지속: 뇌전이 CR 6개월+ DoR은 ASCO 2026 업데이트 대기</li>
+<li>[cond:208] ◐ 유지: Yuanta 80K원 outlier 존재로 &quot;rNPV $33B 내러티브&quot; 애널리스트 간 합의 미완성</li>
+<li>[cond:196] ⏳ 유지: Ph1b/2 2026-1H 개시 DART 승인 완료(info:3251) — <strong>met 임박</strong></li>
+<li>[cond:199] ⬜ 유지: 빅파마 LOI/텀시트 공개 없음</li>
+</ul>
+<h3>Base Case [thesis:23] (confidence: medium 유지)</h3>
+<ul>
+<li>[cond:200] ⏳ ORIC-114 + Rybrevant SC Ph1b 용량확정 — 2026-Q2 데이터 대기</li>
+<li>Zipalertinib 2026-02 NDA 접수로 <strong>VRN07 upside 축소 추세</strong> → Base 하방 리스크 증가</li>
+</ul>
+<h3>Bear Case [thesis:24] (confidence: medium 유지)</h3>
+<ul>
+<li>[cond:210] ✅ 2025-3Q 자산 995억 — 유지 확인</li>
+<li>[cond:204] ⏳ 12개월 runway: 현금 256억/연 R&amp;D 277억 → <strong>9~11개월로 단축</strong>, 하반기 자금조달 압력 증가</li>
+<li>경쟁약 압박 가속: Zongertinib 승인(HER2), Zipalertinib NDA(Exon20), Sunvozertinib 승인(Exon20) — Bear 강화</li>
+</ul>
+<h2>6. Key Risks &amp; Catalysts Timeline</h2>
+<h3>촉매 연표 (12~24개월)</h3>
+<tr><td>일자</td><td>약물</td><td>이벤트</td><td>임팩트</td></tr>
+
+<tr><td>2026-05</td><td>VRN11</td><td>ASCO Ph1a 뇌전이 업데이트</td><td><strong>High (+)</strong></td></tr>
+<tr><td>2026-05</td><td>VRN10</td><td>ASCO Ph1a 데이터 공개</td><td><strong>Medium (+)</strong></td></tr>
+<tr><td>2026-Q2</td><td>VRN07</td><td>Rybrevant SC Ph1b 용량확정</td><td>Medium (+)</td></tr>
+<tr><td>2026-1H</td><td>VRN11</td><td>Ph1b/2 2L 개시</td><td><strong>High (+)</strong></td></tr>
+<tr><td>2026-2H</td><td>VRN11</td><td>H2H vs Osimertinib 개시</td><td><strong>High (+/-)</strong></td></tr>
+<tr><td>2026-2H</td><td>VRN11</td><td>글로벌 빅파마 L/O</td><td><strong>Critical (+)</strong></td></tr>
+<tr><td>2027</td><td>VRN11</td><td>2L 가속승인 신청</td><td>High (+)</td></tr>
+<h3>주요 리스크 TOP 5</h3>
+<p>1. <strong>L/O 실패 (확률 30% × 임팩트 극대)</strong>: 2026-2H까지 텀시트 부재 시 밸류 30% 하락</p>
+<p>2. <strong>현금 고갈 → 유증 (확률 50% × 중대)</strong>: runway 9~11개월, 하반기 유증 또는 전환사채 발행 가능성</p>
+<p>3. <strong>VRN11 확장 코호트 데이터 재현 실패 (확률 20% × 극대)</strong>: n=8 C797S가 30~50명에서 ORR 유지될지 불확실</p>
+<p>4. <strong>경쟁 가속 (확률 70% × 중간)</strong>: BLU-945, JIN-A02 병용 데이터, 중국 4세대 TKI 글로벌 진출</p>
+<p>5. <strong>코스닥 리그제 2부 편입 (확률 40% × 중간)</strong>: 조단위 시총이나 적자 지속으로 수급 이탈 (info:3332, info:3831)</p>
+<h2>7. Valuation Notes</h2>
+<p><strong>애널리스트 컨센서스</strong> (2026-04):</p>
+<ul>
+<li>평균 목표주가 <strong>265,000원</strong> (4 Buy, 0 Sell, Strong Buy)</li>
+<li>상단 300,000원 / 하단 <strong>80,000원 (Yuanta)</strong></li>
+<li>현재가 303,500원 (2026-04-16) — <strong>평균 목표가 14% 초과, 상단 근접</strong></li>
+</ul>
+<p><strong>Valuation 프레임워크</strong>:</p>
+<ul>
+<li>회사 제시 VRN11 rNPV $33.4B (2025-12, info:3224) — <strong>매우 공격적</strong></li>
+<li>시총 3.87T KRW ≈ $2.7B → VRN11 단일 자산 rNPV의 약 8% 수준 반영</li>
+<li>Peer 비교: Blueprint(BLU-945) 시총 $4~5B, 그러나 Ayvakit(systemic mastocytosis) 승인 자산 보유 → 직접 비교 부적절</li>
+</ul>
+<p><strong>적정 가치 레인지 (본 리포트 기준)</strong>:</p>
+<ul>
+<li><strong>Bear case</strong>: 80,000~150,000원 (Yuanta 근거 + L/O 지연 시나리오)</li>
+<li><strong>Base case</strong>: 200,000~280,000원 (VRN11 Ph1b/2 성공 + VRN07 로열티 유지)</li>
+<li><strong>Bull case</strong>: 350,000~450,000원 (2026-2H 빅파마 L/O 체결 + C797S 확장 ORR 유지)</li>
+</ul>
+<p><strong>현재가 303,500원은 Base 상단~Bull 하단 구간</strong> — 위로 열려있으나 리스크/리워드 비대칭 약화. 6월 ASCO 뇌전이 데이터 + Ph1b/2 개시 공식 발표 전 추가 확대는 fundamental에 선행.</p>
+<h2>8. Appendix — Sources</h2>
+<ul>
+<li><strong>DB info_id</strong>: 3929 (IR 2026.04), 3928 (AACR LB365 VRN10), 3927 (AACR LB336 VRN11), 3887 (히트뉴스 AACR), 3250/3251 (DART IND), 3225/3224 (IR Book)</li>
+<li><strong>Deals</strong>: deal:32 (ORIC-114)</li>
+<li><strong>외부 소스</strong>:</li>
+<li>KBR AACR 2026: https://www.koreabiomed.com/news/articleView.html?idxno=30087</li>
+<li>Taiho/Cullinan Zipalertinib NDA (2026-02): https://www.taihooncology.com/us/news/</li>
+<li>Voronoi Pipeline: https://voronoi.io/en/science/pipeline-overview/</li>
+<li>애널리스트 데이터: FnGuide/Investing.com</li>
+<li>Yuanta 리포트: https://securities.miraeasset.com/bbs/download/2123300.pdf (참조)</li>
+<li><strong>IR PDF</strong>: ir-materials/voronoi/2026-04-17_event_24.pdf, VRN10_2026_AACR_poster.pdf, VRN11_2026_AACR_poster.pdf</li>
+</ul>
+<p></code>``json:analysis_result</p>
+<p>{</p>
+<p>&quot;connections&quot;: [</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3927, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 22,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;VRN11 AACR 2026 LB336 — C797S ORR 87.5% + ≥160mg 유효용량군 100%(6/6) + Grade≥3 TRAE 1.5% 데이터가 Bull Case 핵심 전제(C797S 효능)를 강하게 검증&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3928, &quot;target_type&quot;: &quot;pipeline&quot;, &quot;target_id&quot;: 71,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;AACR LB365 — VRN10 HER2 internalization + lysosomal degradation 기전 확립 및 T-DXd 내성 모델 시너지 확인&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3251, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 22,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;moderate&quot;,</p>
+<p>&quot;description&quot;: &quot;VRN11 Ph1/2 변경승인 DART 공시 — 2026-1H Ph1b/2 개시 전제조건 진행 증거&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3252, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 24,</p>
+<p>&quot;relation_type&quot;: &quot;impacts&quot;, &quot;strength&quot;: &quot;moderate&quot;,</p>
+<p>&quot;description&quot;: &quot;사업보고서 — 현금 256억/연 R&amp;D 277억으로 runway 9~11개월 축소, Bear Case 재무 리스크 강화&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3887, &quot;target_type&quot;: &quot;pipeline&quot;, &quot;target_id&quot;: 69,</p>
+<p>&quot;relation_type&quot;: &quot;relates_to&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;VRN11 Ph1a 상세 데이터 — 전체 ORR 25.8%, DCR 96.8%, No ILD/QT, No DLT @480mg&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3332, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 24,</p>
+<p>&quot;relation_type&quot;: &quot;impacts&quot;, &quot;strength&quot;: &quot;weak&quot;,</p>
+<p>&quot;description&quot;: &quot;코스닥 리그제 2부 편입 리스크 — 수급 측면 Bear 시나리오 보강&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3228, &quot;target_type&quot;: &quot;pipeline&quot;, &quot;target_id&quot;: 69,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;moderate&quot;,</p>
+<p>&quot;description&quot;: &quot;VRN11 대만 임상 1/2상 변경 승인 — 글로벌 임상 확장 진행 증거&quot;}</p>
+<p>],</p>
+<p>&quot;thesis_changes&quot;: [],</p>
+<p>&quot;condition_updates&quot;: [</p>
+<p>{&quot;thesis_id&quot;: 22, &quot;condition_id&quot;: 197, &quot;old_status&quot;: &quot;partial&quot;, &quot;new_status&quot;: &quot;met&quot;,</p>
+<p>&quot;reasoning&quot;: &quot;AACR 2026 LB336 데이터(info:3927, info:3887)에서 ≥160mg 유효용량군 C797S ORR 100%(6/6) + 전체 C797S subset 87.5%(7/8) 확인으로 &#x27;ORR 50%+ 유지&#x27; 조건 충족&quot;},</p>
+<p>{&quot;thesis_id&quot;: 22, &quot;condition_id&quot;: 196, &quot;old_status&quot;: &quot;pending&quot;, &quot;new_status&quot;: &quot;partial&quot;,</p>
+<p>&quot;reasoning&quot;: &quot;2026-03-26 DART 공시(info:3251) VRN11 Ph1/2 변경 승인으로 2026-1H 개시 로드맵 진행 중, 실제 FPI 전까지 partial 유지&quot;},</p>
+<p>{&quot;thesis_id&quot;: 24, &quot;condition_id&quot;: 204, &quot;old_status&quot;: &quot;pending&quot;, &quot;new_status&quot;: &quot;partial&quot;,</p>
+<p>&quot;reasoning&quot;: &quot;2025 사업보고서(info:3252) 기준 현금 256억/연 R&amp;D 277억으로 runway 9~11개월 추정 — 12개월 임계 근접, 하반기 자금조달 압력 증가&quot;}</p>
+<p>]</p>
+<p>}</p>
+<p><pre><code class="lang-">
+## 브리핑
+
+**보로노이(310210) AACR 2026 핵심 자산 데이터 완전 입증, 밸류에이션 재평가 구간 진입**
+
+VRN11 AACR 2026 LB336 발표(2026-04-17)에서 **≥160mg 유효용량군 C797S ORR 100%(6/6), 전체 C797S subset 87.5%(7/8), DCR 96.8%, Grade≥3 TRAE 1.5%**로 *best-in-class* 프로파일 입증. 뇌투과율 Kpuu,CSF=2.0 (Osimertinib 대비 6~10배)은 뇌전이/LM 환자에서 명확한 차별화. **Bull Case 핵심 전제(C797S ORR 50%+)는 `met`로 승격**, Ph1b/2 2026-1H 개시는 DART 승인 완료로 `partial` 진입. 반면 현금 256억/연 R&amp;D 277억으로 **runway 9~11개월**로 단축되어 2026-2H L/O 또는 유증 압력 증가. VRN10은 ASCO 2026 데이터 대기 중이며 HER2 internalization+lysosomal degradation 기전으로 T-DXd 병용 가치 보유. VRN07은 Zipalertinib NDA 접수(2026-02)로 경쟁 가속되어 Base 하방 리스크 증가. **투자 관점**: 현재가 303,500원은 애널평균 265K 초과·Yuanta 80K와 극단 갭 존재. 6월 ASCO(뇌전이 DoR, VRN10 Ph1a) + 2026-2H 빅파마 L/O 여부가 **re-rating 트리거**. 재무 리스크(유증/전환사채)를 헤지로 반영 필요.
+
+</code></pre></p>
+<p>&lt;/details&gt;</p>
+</body>
+</html>
