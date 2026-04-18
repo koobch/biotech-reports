@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>올릭스 (226950) — Deep Research 20260418</title>
+<style>
+:root { --bg: #fff; --fg: #1e293b; --muted: #64748b; --border: #e2e8f0; --accent: #4f46e5; --code-bg: #f1f5f9; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0f172a; --fg: #e2e8f0; --muted: #94a3b8; --border: #334155; --accent: #818cf8; --code-bg: #1e293b; }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard', -apple-system, 'IBM Plex Sans KR', sans-serif; background: var(--bg); color: var(--fg); line-height: 1.7; padding: 2rem; max-width: 860px; margin: 0 auto; font-size: 14px; }
+h1 { font-size: 1.6em; font-weight: 700; margin: 2rem 0 1rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.3em; font-weight: 600; margin: 1.8rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; color: var(--accent); }
+h3 { font-size: 1.1em; font-weight: 600; margin: 1.2rem 0 0.5rem; }
+h4 { font-size: 1em; font-weight: 600; margin: 1rem 0 0.4rem; }
+p { margin: 0.6rem 0; }
+ul, ol { margin: 0.5rem 0 0.5rem 1.5rem; }
+li { margin: 0.2rem 0; }
+strong { font-weight: 600; }
+code { background: var(--code-bg); padding: 0.15em 0.4em; border-radius: 3px; font-size: 0.9em; font-family: 'JetBrains Mono', monospace; }
+pre { background: var(--code-bg); padding: 1rem; border-radius: 6px; overflow-x: auto; margin: 1rem 0; font-size: 0.85em; line-height: 1.5; }
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.9em; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; }
+th { background: var(--code-bg); font-weight: 600; }
+blockquote { border-left: 3px solid var(--accent); margin: 1rem 0; padding: 0.5rem 1rem; color: var(--muted); }
+.meta { color: var(--muted); font-size: 0.85em; margin-bottom: 2rem; padding: 1rem; background: var(--code-bg); border-radius: 6px; }
+.meta span { margin-right: 1.5rem; }
+details { margin: 1rem 0; }
+summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+@media print { body { max-width: none; padding: 1cm; font-size: 11pt; } .meta { display: none; } }
+</style>
+</head>
+<body>
+<div class="meta">
+  <span><strong>올릭스</strong> (226950)</span>
+  <span>📅 20260418</span>
+  <span>🏷️ manual</span>
+  <span>🔗 Session 83</span>
+</div>
+<h1>올릭스 (226950) — Deep Research</h1>
+<blockquote>생성일: 2026-04-18 19:23  |  트리거: manual  |  세션: 83</blockquote>
+<hr>
+<h2>1. Executive Summary</h2>
+<ul>
+<li><strong>OLX301A Ph1 건성AMD BCVA +9.9자 효능 신호</strong>, 2차 L/O 협상 가속</li>
+<li><strong>릴리 딜 $630M + OLX702A Ph1 2026 H2 리드아웃</strong> — 최대 상방 촉매</li>
+<li><strong>경쟁 격화</strong>: Arrowhead ARO-INHBE·ALK7 강력 데이터 공개 (2026.01) — 비만 확장 스토리 압박</li>
+<li><strong>현금 1,323억 + 릴리 비용 부담</strong> → 18~24개월 burn-rate 안정권</li>
+<li><strong>시총 과열 구간(목표가 컨센서스 16만 vs 주가 19.8만)</strong> — 촉매 이행 실패 시 되돌림 리스크</li>
+</ul>
+<h2>2. Company Snapshot</h2>
+<ul>
+<li><strong>플랫폼</strong>: RNAi 3세대 (cp-asiRNA 자가전달 / GalNAc-asiRNA 간 표적 / Dual-target siRNA). 비대칭 구조로 off-target 저감 주장</li>
+<li><strong>재무 (2025년 말)</strong>: 자산 1,954억, 현금 1,323억 (2025.08 CPS 1,150억 유증 반영). 2024년 매출 36억 → 2025 Q3 누적 29억 (릴리 계약금 인식 진행 중 추정)</li>
+<li><strong>시총</strong>: 주가 19.8만 × 발행주식 ≈ 3조 내외 (2024 매출 대비 500배 이상 PSR — 플랫폼 프리미엄 전제)</li>
+<li><strong>최근 12개월 타임라인</strong>:</li>
+<li>2025-02: 릴리 OLX702A L/O $630M 체결 ([deal:1])</li>
+<li>2025-08: CPS 1,150억 유상증자 완료 (KB인베·IMM 등)</li>
+<li>2025-12: L&#x27;Oréal 1차 마일스톤 수령 ([info:3182])</li>
+<li>2026-01: JPM 2026에서 ALK7 비만 프로그램 최초 공개, OLX301A 파트너링 논의</li>
+<li>2026-04: OLX301A 미국 물질특허 등록 + Thea Pharma 1차 마일스톤 수령 예정 ([info:2230], [info:1856])</li>
+</ul>
+<h2>3. Pipeline Deep Dive</h2>
+<p>[데이터 부족]</p>
+<h2>4. Competitive Landscape</h2>
+<p><strong>siRNA 글로벌 3강 대비 올릭스 포지션</strong>:</p>
+<tr><td>지표</td><td>Alnylam</td><td>Arrowhead</td><td>Ionis</td><td><strong>Olix</strong></td></tr>
+
+<tr><td>시총</td><td>$40B+</td><td>$7B</td><td>$4B</td><td>$3B (KR)</td></tr>
+<tr><td>승인약</td><td>6개</td><td>1개(Plozasiran)</td><td>5개</td><td>0</td></tr>
+<tr><td>Ph3 프로그램</td><td>10+</td><td>4</td><td>8+</td><td>0</td></tr>
+<tr><td>빅파마 파트너</td><td>Regeneron/Roche/Novartis</td><td>Amgen/Takeda/Sarepta</td><td>AstraZeneca/Biogen/Roche</td><td><strong>Lilly/L&#x27;Oréal/Hansoh</strong></td></tr>
+<tr><td>핵심 확장 축</td><td>CNS 유전자치료</td><td>비만(ALK7/INHBE)</td><td>HAE/Ophthalmology</td><td><strong>Ocular(cp-asiRNA)</strong></td></tr>
+<ul>
+<li><strong>우위</strong>: cp-asiRNA 자가전달 플랫폼은 글로벌에서 희소. 안과(OLX301A·304C·301D), 피부(OLX101A·104C) 국소투여 영역에서 3강과 non-overlapping</li>
+<li><strong>열위</strong>: 간 표적 GalNAc 경쟁에서는 <strong>Alnylam/Arrowhead 대비 5년 이상 지연</strong>. 비만(ALK7·INHBE)은 이미 경쟁 포화</li>
+<li><strong>Valuation 비교</strong>: Alnylam EV/Revenue ~20배, Arrowhead ~15배 대비 올릭스 PSR 500배+는 매출이 아닌 <strong>플랫폼 옵션 가치 평가</strong> 필요. 릴리 딜 $630M + Thea 107억 = ~8,500억 L/O 누적 가치가 현 시총 상당 부분 정당화</li>
+</ul>
+<h2>5. Thesis Scorecard</h2>
+<h3>Bull (thesis:1, medium)</h3>
+<ul>
+<li><strong>유지</strong>: OLX301A BCVA 9.9자 + 미국 특허 + Bio-Europe 참가는 cond:2 (2차 L/O) 실현 확률 상승. 단 Arrowhead 비만 데이터로 cond:4(비만 확장)는 <strong>부정적 신호</strong></li>
+<li><strong>조건 상태 재평가</strong>:</li>
+<li>cond:2 (OLX301A 2차 L/O): partial 유지 — 특허·데이터·협상 진전하나 계약 미체결</li>
+<li>cond:4 (비만 적응증 확대): <strong>partial → unmet 하향 권고</strong> (Arrowhead 선점)</li>
+</ul>
+<h3>Base (thesis:3, high)</h3>
+<ul>
+<li><strong>유지</strong>: 릴리 딜 기반 자금 안정 + 촉매 이벤트 연속 현실화. 2026 H1~H2 탑라인 2건 대기</li>
+<li>cond:22 (OLX301A 파트너링 진전): partial → <strong>partial(강화)</strong>. Thea 마일스톤 + Bio-Europe 참가 신호 누적</li>
+</ul>
+<h3>Bear (thesis:2, low)</h3>
+<ul>
+<li><strong>유지 but 경계</strong>: cond:16 (시총 2.5조 대비 실질 매출 미미)는 <strong>시총 3조 근접으로 심화</strong>. cond:20 트리거 임박</li>
+<li><strong>신규 리스크</strong>: Arrowhead 비만 데이터로 cond:18 (간 외 전달 실패) 재해석 필요 — 간 표적 RNAi 포화 → 올릭스 간 파이프라인(OLX706 시리즈)의 시장 기회 축소</li>
+</ul>
+<h2>6. Key Risks &amp; Catalysts Timeline</h2>
+<p><strong>촉매 연표 (12~24개월)</strong>:</p>
+<tr><td>시점</td><td>이벤트</td><td>기대 임팩트</td></tr>
+
+<tr><td>2026 H1</td><td>OLX301A Ph1 CSR 최종 + Ph2a IND</td><td>+15~25%</td></tr>
+<tr><td>2026 H1~Q3</td><td>OLX301A 2차 L/O 계약 (목표)</td><td>+30~50%</td></tr>
+<tr><td>2026 H2</td><td>OLX702A Ph1 탑라인 (릴리 Ph2 결정)</td><td>±40% (양방향)</td></tr>
+<tr><td>2026 H2</td><td>OLX104C Ph1b 초기 데이터</td><td>+10~20%</td></tr>
+<tr><td>2026 말</td><td>L&#x27;Oréal 공동연구 추가 마일스톤</td><td>+5~10%</td></tr>
+<tr><td>2027</td><td>ALK7 IND 제출 (Arrowhead 대비 후발)</td><td>중립~제한적</td></tr>
+<p><strong>TOP 5 리스크</strong>:</p>
+<p>1. <strong>OLX702A Ph1 안전성 이슈</strong> (확률 중·임팩트 대) — 릴리 반환 시 시총 -40%</p>
+<p>2. <strong>OLX301A 2차 L/O 무산 or 지연</strong> (확률 중·임팩트 중) — -20%</p>
+<p>3. <strong>CPS 전환 희석</strong> (확률 고·임팩트 소) — 2027~2028 단계적</p>
+<p>4. <strong>Arrowhead/Alnylam 비만 데이터 추가 공개</strong> (확률 고·임팩트 중) — ALK7 가치 하향</p>
+<p>5. <strong>바이오 섹터 전반 리스크오프</strong> (확률 중·임팩트 중) — 고PSR 종목 되돌림</p>
+<h2>7. Valuation Notes</h2>
+<ul>
+<li><strong>컨센서스</strong>: 1 애널리스트 12M 목표가 <strong>16만원</strong> (현재가 19.8만 대비 <strong>-19%</strong>). 커버리지 희박으로 시장 합의 부재</li>
+<li><strong>rNPV 프레임워크</strong> (개략):</li>
+<li>OLX702A: $630M × 10% 확률가중 × 올릭스 지분 100% (단계별 청구권) ≈ 8,000억</li>
+<li>OLX301A: 2차 L/O 가정 $400M × 25% 확률 ≈ 1,300억</li>
+<li>플랫폼 옵션 (ALK7, 104C, 그 외): 5,000억</li>
+<li><strong>NAV 합계 ≈ 1.4조</strong> vs 시총 3조 → <strong>50% 이상 프리미엄</strong></li>
+<li><strong>해석</strong>: 시장은 OLX301A 2차 L/O 확률을 rNPV 기준보다 훨씬 높게 반영 중. <strong>촉매 이행 실패 시 하방 리스크 상당</strong></li>
+<li><strong>적정 레인지</strong>: 단기 15~22만원 (촉매 기대감 반영), 촉매 이행 시 25만+ 돌파 가능. 실패 시 12~14만 되돌림</li>
+</ul>
+<h2>8. Appendix — Sources</h2>
+<p><strong>DB info_id</strong>: 1856, 1864, 2017, 2043, 2171, 2172, 2230, 3182, 3592, 3780, 3826, 3827, 3880, 3888, 3948</p>
+<p><strong>NCT ID</strong>: NCT(OLX10212 Ph1) [trial:2], NCT(OLX75016 Ph1) [trial:1], NCT(OLX72021 Ph1b/2a) [trial:3]</p>
+<p><strong>DART</strong>: 사업보고서 2025.12 ([info:2815]), 주주총회소집공고 ([info:2819])</p>
+<p><strong>Deals</strong>: Lilly L/O ($630M, 2025-02-07) [deal:1], L&#x27;Oréal Collaboration (2025-06-15) [deal:2], Thea Pharma (€10.6M, 2024-06-01) [deal:29], Hansoh ($226.5M, 2021-10-15) [deal:27]</p>
+<p><strong>External URLs</strong>:</p>
+<ul>
+<li>[Korea Biomed — OLX301A Ph1 US](https://www.koreabiomed.com/news/articleView.html?idxno=29577)</li>
+<li>[이데일리 — BCVA 9.9글자 개선](https://www.edaily.co.kr)</li>
+<li>[Fierce Biotech — Lilly $630M OliX deal](https://www.fiercebiotech.com/biotech/eli-lilly-inks-duo-deals-teaming-advancell-olix-push-deeper-radiopharma-mash)</li>
+<li>[Arrowhead ARO-INHBE/ALK7 interim data (2026-01-06)](https://arrowheadpharma.com/news-press/arrowhead-pharmaceuticals-announces-interim-clinical-data-on-rnai-based-obesity-candidates-showing-weight-loss-in-obese-patients-with-diabetes-and-improved-measures-of-body-composition/)</li>
+<li>[STAT News — Arrowhead fat reduction](https://www.statnews.com/2026/01/06/arrowhead-pharmaceuticals-gene-silencing-drug-cuts-fat-study-finds/)</li>
+</ul>
+<hr>
+<p>``<code>json:analysis_result</p>
+<p>{</p>
+<p>&quot;connections&quot;: [</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 1856, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 1,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;OLX301A 미국 물질특허 등록은 글로벌 IP 보호 강화로 2차 기술이전 협상력 상승 — Bull case cond:2/cond:11 trigger 근접&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3827, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 1,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;OLX301A Ph1 건성AMD BCVA 최대 +9.9자 효능 신호 — Bull case cond:2 실현 확률 상승, 7.2조 Dry AMD 시장 진입 가시성&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 2230, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 3,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;moderate&quot;,</p>
+<p>&quot;description&quot;: &quot;Thea Pharma 1차 마일스톤 기술료 수령 — Base case 파트너링 진전 신호, 매출 인식 확정&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 2171, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 1,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;moderate&quot;,</p>
+<p>&quot;description&quot;: &quot;Bio-Europe Spring 2026 참가 및 추가 기술이전 논의 — cond:22 파트너링 진전 근거&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3592, &quot;target_type&quot;: &quot;pipeline&quot;, &quot;target_id&quot;: 4,</p>
+<p>&quot;relation_type&quot;: &quot;impacts&quot;, &quot;strength&quot;: &quot;moderate&quot;,</p>
+<p>&quot;description&quot;: &quot;식약처 Finasteride/Dutasteride 안전성 경고 강화 — 비호르몬 AGA 카테고리(OLX104C)에 구조적 유리&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;competitor&quot;, &quot;source_id&quot;: 133, &quot;target_type&quot;: &quot;pipeline&quot;, &quot;target_id&quot;: 40,</p>
+<p>&quot;relation_type&quot;: &quot;competes_with&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;Arrowhead ARO-INHBE 2026.01 공개 데이터(체중감소 2배, 내장지방 -23.2%, 간지방 -76.7%)는 올릭스 ALK7 비만 프로그램의 best-in-class 포지션 실현 난항&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;competitor&quot;, &quot;source_id&quot;: 134, &quot;target_type&quot;: &quot;pipeline&quot;, &quot;target_id&quot;: 40,</p>
+<p>&quot;relation_type&quot;: &quot;competes_with&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;Arrowhead ARO-ALK7 Ph2 ALK7 mRNA -88% knockdown 입증 — 올릭스 ALK7은 Preclinical 단계로 5년 이상 지연&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3888, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 2,</p>
+<p>&quot;relation_type&quot;: &quot;relates_to&quot;, &quot;strength&quot;: &quot;weak&quot;,</p>
+<p>&quot;description&quot;: &quot;올릭스 -5.04% 하락 거래 — 시총 과열 구간 되돌림 조짐 관찰 (cond:20 근접)&quot;}</p>
+<p>],</p>
+<p>&quot;thesis_changes&quot;: [],</p>
+<p>&quot;condition_updates&quot;: [</p>
+<p>{&quot;thesis_id&quot;: 1, &quot;condition_id&quot;: 4, &quot;old_status&quot;: &quot;partial&quot;, &quot;new_status&quot;: &quot;unmet&quot;,</p>
+<p>&quot;reasoning&quot;: &quot;Arrowhead ARO-INHBE + tirzepatide 병용 체중감소 2배·내장지방 -23.2% 공개(2026-01). 비만 적응증 확대 시장 선점 당해 어려움 — partial 정당화 근거 약화, unmet 하향&quot;},</p>
+<p>{&quot;thesis_id&quot;: 3, &quot;condition_id&quot;: 22, &quot;old_status&quot;: &quot;partial&quot;, &quot;new_status&quot;: &quot;partial&quot;,</p>
+<p>&quot;reasoning&quot;: &quot;OLX301A 미국 물질특허 등록(2026-04), Thea 1차 마일스톤 수령, Bio-Europe Spring 참가 등 파트너링 진전 신호 누적 — partial 유지이나 강도 상승. 계약 체결 시 met 전환 대기&quot;},</p>
+<p>{&quot;thesis_id&quot;: 1, &quot;condition_id&quot;: 2, &quot;old_status&quot;: &quot;partial&quot;, &quot;new_status&quot;: &quot;partial&quot;,</p>
+<p>&quot;reasoning&quot;: &quot;OLX301A BCVA +9.9자 및 미국 특허 등록으로 협상력 강화. 복수 빅파마 파트너링 논의 중이나 계약 미체결 — partial 강화 유지&quot;}</p>
+<p>]</p>
+<p>}</p>
+<p><pre><code class="lang-">
+## 브리핑
+
+**올릭스(226950) 2026-04-18 딥리서치**: OLX301A Ph1 건성AMD에서 **BCVA 최대 +9.9자 개선** 효능 신호와 **미국 물질특허 등록**으로 2차 기술이전 협상력이 실질적으로 강화되었다. Thea Pharma 1차 마일스톤 수령과 Bio-Europe Spring 참가는 파트너링 파이프라인이 작동함을 시사. 그러나 **Arrowhead ARO-INHBE/ALK7이 2026.01 체중감소 2배·내장지방 -23.2% 데이터를 공개**하며 올릭스 비만 확장(ALK7) 스토리를 크게 압박 — Bull case `비만 적응증 확대` 조건을 **partial → unmet으로 하향** 권고. 릴리 딜 기반 현금 1,323억 + OLX702A 비용 릴리 전액 부담으로 burn-rate 안정권 확보. **2026 H2 OLX702A Ph1 탑라인이 최대 변곡점** (성공 시 릴리 Ph2 진입 → 개발 마일스톤 인식, 실패 시 반환 리스크). 컨센서스 목표가 16만원 대비 현재 19.8만원은 **19% 프리미엄** — rNPV 계산상 50%+ 밸류에이션 프리미엄 반영된 상태로, 촉매 이행 실패 시 12~14만 되돌림 가능. *지금 지켜봐야 할 것*: ①OLX301A 2차 L/O 서명, ②OLX702A 안전성 프로파일, ③CPS 전환 일정.
+
+Sources:
+- [Korea Biomed — OLX301A demonstrates safety in US phase 1](https://www.koreabiomed.com/news/articleView.html?idxno=29577)
+- [Fierce Biotech — Lilly OliX $630M deal](https://www.fiercebiotech.com/biotech/eli-lilly-inks-duo-deals-teaming-advancell-olix-push-deeper-radiopharma-mash)
+- [Arrowhead ARO-INHBE/ALK7 Interim Data](https://arrowheadpharma.com/news-press/arrowhead-pharmaceuticals-announces-interim-clinical-data-on-rnai-based-obesity-candidates-showing-weight-loss-in-obese-patients-with-diabetes-and-improved-measures-of-body-composition/)
+- [STAT News — Arrowhead gene-silencing obesity data](https://www.statnews.com/2026/01/06/arrowhead-pharmaceuticals-gene-silencing-drug-cuts-fat-study-finds/)
+- [히트뉴스 — OLX301A 미국 물질특허](https://www.hitnews.co.kr/news/articleView.html?idxno=75093)
+
+---
+
+## 템플릿 수집 체크리스트 (내부용)
+
+이 섹션은 `_synthesize()`에서 사용하지 않습니다. 수동 분석 시 참고용 가이드입니다.
+
+### 회사 개요 필드
+- 정식 회사명, 설립연도, 본사, 임직원 수, 시가총액, 상장 시장/종목코드
+
+### 기술 플랫폼
+- 핵심 기술, 특허/IP, 차별화 포인트, 확장 가능성
+
+### 파이프라인별 항목
+- 약물명/코드, 적응증, MOA, Modality, Phase, 주요 임상 결과, 파트너, FIC/BIC 판단
+
+### 재무 현황
+- 매출, 현금, burn rate, runway, 자금 조달 이력
+
+### SWOT
+- Strengths / Weaknesses / Opportunities / Threats
+
+
+---
+
+### Enrichment 기록
+- 애널리스트 리포트: 0건
+- 경쟁 약물: 122건
+- 학회 abstract: 0건
+
+---
+
+&lt;details&gt;&lt;summary&gt;원문 출력 (Claude raw)&lt;/summary&gt;
+
+</code></pre></p>
+<p>충분한 데이터가 확보되었습니다. 이제 종합 리포트를 작성하겠습니다.</p>
+<hr>
+<h1>올릭스 (226950) 딥 리서치 리포트 — 2026-04-18</h1>
+<h2>1. Executive Summary</h2>
+<ul>
+<li><strong>OLX301A Ph1 건성AMD BCVA +9.9자 효능 신호</strong>, 2차 L/O 협상 가속</li>
+<li><strong>릴리 딜 $630M + OLX702A Ph1 2026 H2 리드아웃</strong> — 최대 상방 촉매</li>
+<li><strong>경쟁 격화</strong>: Arrowhead ARO-INHBE·ALK7 강력 데이터 공개 (2026.01) — 비만 확장 스토리 압박</li>
+<li><strong>현금 1,323억 + 릴리 비용 부담</strong> → 18~24개월 burn-rate 안정권</li>
+<li><strong>시총 과열 구간(목표가 컨센서스 16만 vs 주가 19.8만)</strong> — 촉매 이행 실패 시 되돌림 리스크</li>
+</ul>
+<h2>2. Company Snapshot</h2>
+<ul>
+<li><strong>플랫폼</strong>: RNAi 3세대 (cp-asiRNA 자가전달 / GalNAc-asiRNA 간 표적 / Dual-target siRNA). 비대칭 구조로 off-target 저감 주장</li>
+<li><strong>재무 (2025년 말)</strong>: 자산 1,954억, 현금 1,323억 (2025.08 CPS 1,150억 유증 반영). 2024년 매출 36억 → 2025 Q3 누적 29억 (릴리 계약금 인식 진행 중 추정)</li>
+<li><strong>시총</strong>: 주가 19.8만 × 발행주식 ≈ 3조 내외 (2024 매출 대비 500배 이상 PSR — 플랫폼 프리미엄 전제)</li>
+<li><strong>최근 12개월 타임라인</strong>:</li>
+<li>2025-02: 릴리 OLX702A L/O $630M 체결 ([deal:1])</li>
+<li>2025-08: CPS 1,150억 유상증자 완료 (KB인베·IMM 등)</li>
+<li>2025-12: L&#x27;Oréal 1차 마일스톤 수령 ([info:3182])</li>
+<li>2026-01: JPM 2026에서 ALK7 비만 프로그램 최초 공개, OLX301A 파트너링 논의</li>
+<li>2026-04: OLX301A 미국 물질특허 등록 + Thea Pharma 1차 마일스톤 수령 예정 ([info:2230], [info:1856])</li>
+</ul>
+<h2>3. Pipeline Deep Dive</h2>
+<h3>3.1 OLX702A (MARC1, MASH) — Phase 1 / Lilly 보유</h3>
+<ul>
+<li><strong>미충족 수요</strong>: MASH 시장 2030년 $30B 이상 추정. 현재 승인약 Madrigal Rezdiffra(THR-β 경구제) 단일 — 섬유화 개선율 25.9%에 그침. siRNA는 <strong>간 특이적 장기작용 + GLP-1 비응답자 타깃</strong> 가능성</li>
+<li><strong>MOA &amp; 차별화</strong>: GalNAc-MARC1 siRNA. 전임상 NHP에서 단회 투여 간지방 60~70% 감소 (최대 90%), 6개월 지속. GLP-1 병용 비만 원숭이에서 확장성 시사</li>
+<li><strong>임상 데이터 해석</strong>: Ph1 호주 건강인 대상 진행 중. Lilly가 비용 전부 부담 → <strong>올릭스는 R&amp;D burn 없이 마일스톤 기다리는 구조</strong>. 2026 H2 탑라인 예정</li>
+<li><strong>경쟁 포지셔닝</strong>:</li>
+</ul>
+<tr><td>회사</td><td>약물</td><td>타깃</td><td>Phase</td><td>비고</td></tr>
+
+<tr><td>Novo(Dicerna)</td><td>NN6581</td><td>MARC1</td><td>Ph1</td><td>동일 타깃 선행 경쟁</td></tr>
+<tr><td>Alnylam</td><td>ALN-HSD</td><td>HSD17B13</td><td>Ph2</td><td>별도 유전자</td></tr>
+<tr><td>Arrowhead</td><td>Plozasiran(APOC3)</td><td>승인</td><td>TG중심</td><td>간접 경쟁</td></tr>
+<tr><td><strong>Olix/Lilly</strong></td><td>OLX702A</td><td>MARC1</td><td>Ph1</td><td>릴리 Ph2 이후 상업화</td></tr>
+<p>→ Novo와 MARC1 첫 진입 경쟁. 릴리 플랫폼·자본력이 결정적 advantage</p>
+<ul>
+<li><strong>다음 마일스톤</strong>: 2026 H2 Ph1 탑라인 (안전성·PK 확보 시 릴리 Ph2 진입 결정 → 개발 마일스톤 인식)</li>
+</ul>
+<h3>3.2 OLX301A (AMD) — Phase 1 완료, 기술이전 협상 중</h3>
+<ul>
+<li><strong>미충족 수요</strong>: Wet AMD anti-VEGF 시장 $13B, Dry AMD(GA) $7.2B. anti-VEGF 월 1회 주사 피로 + GA는 Apellis/Astellas만 승인 (병변 성장 14~22% 감소 수준)</li>
+<li><strong>MOA &amp; 차별화</strong>: cp-asiRNA 유리체내 주사. <strong>Non-VEGF 경로 유전자 침묵</strong> — anti-VEGF 비반응자 커버리지 + 병용 가능성</li>
+<li><strong>임상 데이터 해석</strong> (2026-04 공개):</li>
+<li>N=15, 100~950μg/eye 단회 유리체내 주사</li>
+<li>안전성: BCVA 15자 이상 손실 <strong>0건</strong>, 경증 안구염증 1건, IOP 유의 증가 없음, DLT 없음 ([info:3827])</li>
+<li>효능 신호: <strong>Dry AMD 일부 환자 BCVA 최대 +9.9자 개선</strong> — 발표된 anti-VEGF Wet AMD 데이터(+5.8~+8.4자)와 비교 가능. 단 Ph1 소규모 시그널임을 유념</li>
+<li><strong>다음 마일스톤</strong>: 2026 H1 CSR 완료 → Ph2a 준비 + 2차 기술이전 계약 논의 (Bio-Europe Spring 2026 참가 [info:2171])</li>
+<li><strong>경쟁 포지셔닝</strong>: Dry AMD/섬유증 타깃 RNAi는 Phio RXI-109(중단), Isarna ISTH0036(TGF-β2 ASO)뿐 — <strong>RNAi fibrosis 카테고리 선두권</strong>. 단 Apellis/Astellas 승인약, REGENXBIO 유전자치료(Ph3)와 시장 포지션 경쟁</li>
+</ul>
+<h3>3.3 OLX104C (Androgenetic Alopecia) — Phase 1b/2a</h3>
+<ul>
+<li><strong>미충족 수요</strong>: AGA 글로벌 시장 $15B. Finasteride/Dutasteride 성기능 부작용 이슈 심화 (2026.04 식약처 경고 강화 [info:3592])</li>
+<li><strong>MOA &amp; 차별화</strong>: 국소 cp-asiRNA, AR mRNA 발현 자체 억제. 경구 전신 5ARI 대비 <strong>전신 호르몬 노출 회피</strong></li>
+<li><strong>임상 진행</strong>: 호주 Ph1b/2a 2025.12 첫 투여. L&#x27;Oréal 공동연구 별도 (미용 독점 협상권)</li>
+<li><strong>경쟁 포지셔닝</strong>: Bioneer CosmeRNA(한국, 화장품 트랙으로 이미 시판), Kintor KX-826/GT20029(Ph3), Cosmo Breezula(Ph3) — <strong>의약품 트랙 내 siRNA는 올릭스 단독</strong>, 단 Bioneer가 cosmeceutical 선점. 식약처 경고 강화는 <strong>비호르몬 카테고리에 구조적 유리</strong></li>
+<li><strong>다음 마일스톤</strong>: 2026 H2 초기 데이터, 2027 Ph2a 완료</li>
+</ul>
+<h3>3.4 ALK7 프로그램 (비만) — Discovery / Pre-IND</h3>
+<ul>
+<li><strong>MOA</strong>: 지방세포 ALK7 siRNA, 2027 IND 목표</li>
+<li><strong>경쟁 포지셔닝 — 가장 큰 우려</strong>: 2026-01-06 Arrowhead ARO-INHBE + tirzepatide 병용 <strong>체중감소 2배, 내장지방 -23.2%, 간지방 -76.7%</strong> 공개. ARO-ALK7 단독 ALK7 mRNA knockdown 평균 -88% 입증. Wave WVE-007은 이미 단회 투여 6개월 내장지방 -14%</li>
+<li><strong>함의</strong>: <strong>올릭스 ALK7이 임상 진입도 못한 상태에서 Arrowhead/Alnylam/Wave가 이미 Ph1~Ph2 데이터 공개</strong> → 시장 진입 시점에 best-in-class 포지션 불가. 릴리 플랫폼 확장 옵션 활용 가능성이 유일 긍정 시나리오</li>
+</ul>
+<h3>3.5 기타 파이프라인</h3>
+<ul>
+<li>OLX101A (비대흉터 Ph2a): RNAi first-in-class, Phio/Pfizer 동일 타깃 경쟁사 개발 중단 또는 Ph3 실패 → <strong>올릭스 단독 유효 후보</strong>, 단 시장 규모 제한적</li>
+<li>OLX703A (HBV), CNS (Vect-Horus), OLX706A/B/C 시리즈: 모두 Preclinical — <strong>가치는 있으나 2027~2029 이벤트</strong></li>
+<li>OLX304C (망막색소변성증): Preclinical. Ocugen OCU400 Ph3 진입 상태 — 시장 진입 타이밍 불리</li>
+</ul>
+<h2>4. Competitive Landscape</h2>
+<p><strong>siRNA 글로벌 3강 대비 올릭스 포지션</strong>:</p>
+<tr><td>지표</td><td>Alnylam</td><td>Arrowhead</td><td>Ionis</td><td><strong>Olix</strong></td></tr>
+
+<tr><td>시총</td><td>$40B+</td><td>$7B</td><td>$4B</td><td>$3B (KR)</td></tr>
+<tr><td>승인약</td><td>6개</td><td>1개(Plozasiran)</td><td>5개</td><td>0</td></tr>
+<tr><td>Ph3 프로그램</td><td>10+</td><td>4</td><td>8+</td><td>0</td></tr>
+<tr><td>빅파마 파트너</td><td>Regeneron/Roche/Novartis</td><td>Amgen/Takeda/Sarepta</td><td>AstraZeneca/Biogen/Roche</td><td><strong>Lilly/L&#x27;Oréal/Hansoh</strong></td></tr>
+<tr><td>핵심 확장 축</td><td>CNS 유전자치료</td><td>비만(ALK7/INHBE)</td><td>HAE/Ophthalmology</td><td><strong>Ocular(cp-asiRNA)</strong></td></tr>
+<ul>
+<li><strong>우위</strong>: cp-asiRNA 자가전달 플랫폼은 글로벌에서 희소. 안과(OLX301A·304C·301D), 피부(OLX101A·104C) 국소투여 영역에서 3강과 non-overlapping</li>
+<li><strong>열위</strong>: 간 표적 GalNAc 경쟁에서는 <strong>Alnylam/Arrowhead 대비 5년 이상 지연</strong>. 비만(ALK7·INHBE)은 이미 경쟁 포화</li>
+<li><strong>Valuation 비교</strong>: Alnylam EV/Revenue ~20배, Arrowhead ~15배 대비 올릭스 PSR 500배+는 매출이 아닌 <strong>플랫폼 옵션 가치 평가</strong> 필요. 릴리 딜 $630M + Thea 107억 = ~8,500억 L/O 누적 가치가 현 시총 상당 부분 정당화</li>
+</ul>
+<h2>5. Thesis Scorecard</h2>
+<h3>Bull (thesis:1, medium)</h3>
+<ul>
+<li><strong>유지</strong>: OLX301A BCVA 9.9자 + 미국 특허 + Bio-Europe 참가는 cond:2 (2차 L/O) 실현 확률 상승. 단 Arrowhead 비만 데이터로 cond:4(비만 확장)는 <strong>부정적 신호</strong></li>
+<li><strong>조건 상태 재평가</strong>:</li>
+<li>cond:2 (OLX301A 2차 L/O): partial 유지 — 특허·데이터·협상 진전하나 계약 미체결</li>
+<li>cond:4 (비만 적응증 확대): <strong>partial → unmet 하향 권고</strong> (Arrowhead 선점)</li>
+</ul>
+<h3>Base (thesis:3, high)</h3>
+<ul>
+<li><strong>유지</strong>: 릴리 딜 기반 자금 안정 + 촉매 이벤트 연속 현실화. 2026 H1~H2 탑라인 2건 대기</li>
+<li>cond:22 (OLX301A 파트너링 진전): partial → <strong>partial(강화)</strong>. Thea 마일스톤 + Bio-Europe 참가 신호 누적</li>
+</ul>
+<h3>Bear (thesis:2, low)</h3>
+<ul>
+<li><strong>유지 but 경계</strong>: cond:16 (시총 2.5조 대비 실질 매출 미미)는 <strong>시총 3조 근접으로 심화</strong>. cond:20 트리거 임박</li>
+<li><strong>신규 리스크</strong>: Arrowhead 비만 데이터로 cond:18 (간 외 전달 실패) 재해석 필요 — 간 표적 RNAi 포화 → 올릭스 간 파이프라인(OLX706 시리즈)의 시장 기회 축소</li>
+</ul>
+<h2>6. Key Risks &amp; Catalysts Timeline</h2>
+<p><strong>촉매 연표 (12~24개월)</strong>:</p>
+<tr><td>시점</td><td>이벤트</td><td>기대 임팩트</td></tr>
+
+<tr><td>2026 H1</td><td>OLX301A Ph1 CSR 최종 + Ph2a IND</td><td>+15~25%</td></tr>
+<tr><td>2026 H1~Q3</td><td>OLX301A 2차 L/O 계약 (목표)</td><td>+30~50%</td></tr>
+<tr><td>2026 H2</td><td>OLX702A Ph1 탑라인 (릴리 Ph2 결정)</td><td>±40% (양방향)</td></tr>
+<tr><td>2026 H2</td><td>OLX104C Ph1b 초기 데이터</td><td>+10~20%</td></tr>
+<tr><td>2026 말</td><td>L&#x27;Oréal 공동연구 추가 마일스톤</td><td>+5~10%</td></tr>
+<tr><td>2027</td><td>ALK7 IND 제출 (Arrowhead 대비 후발)</td><td>중립~제한적</td></tr>
+<p><strong>TOP 5 리스크</strong>:</p>
+<p>1. <strong>OLX702A Ph1 안전성 이슈</strong> (확률 중·임팩트 대) — 릴리 반환 시 시총 -40%</p>
+<p>2. <strong>OLX301A 2차 L/O 무산 or 지연</strong> (확률 중·임팩트 중) — -20%</p>
+<p>3. <strong>CPS 전환 희석</strong> (확률 고·임팩트 소) — 2027~2028 단계적</p>
+<p>4. <strong>Arrowhead/Alnylam 비만 데이터 추가 공개</strong> (확률 고·임팩트 중) — ALK7 가치 하향</p>
+<p>5. <strong>바이오 섹터 전반 리스크오프</strong> (확률 중·임팩트 중) — 고PSR 종목 되돌림</p>
+<h2>7. Valuation Notes</h2>
+<ul>
+<li><strong>컨센서스</strong>: 1 애널리스트 12M 목표가 <strong>16만원</strong> (현재가 19.8만 대비 <strong>-19%</strong>). 커버리지 희박으로 시장 합의 부재</li>
+<li><strong>rNPV 프레임워크</strong> (개략):</li>
+<li>OLX702A: $630M × 10% 확률가중 × 올릭스 지분 100% (단계별 청구권) ≈ 8,000억</li>
+<li>OLX301A: 2차 L/O 가정 $400M × 25% 확률 ≈ 1,300억</li>
+<li>플랫폼 옵션 (ALK7, 104C, 그 외): 5,000억</li>
+<li><strong>NAV 합계 ≈ 1.4조</strong> vs 시총 3조 → <strong>50% 이상 프리미엄</strong></li>
+<li><strong>해석</strong>: 시장은 OLX301A 2차 L/O 확률을 rNPV 기준보다 훨씬 높게 반영 중. <strong>촉매 이행 실패 시 하방 리스크 상당</strong></li>
+<li><strong>적정 레인지</strong>: 단기 15~22만원 (촉매 기대감 반영), 촉매 이행 시 25만+ 돌파 가능. 실패 시 12~14만 되돌림</li>
+</ul>
+<h2>8. Appendix — Sources</h2>
+<p><strong>DB info_id</strong>: 1856, 1864, 2017, 2043, 2171, 2172, 2230, 3182, 3592, 3780, 3826, 3827, 3880, 3888, 3948</p>
+<p><strong>NCT ID</strong>: NCT(OLX10212 Ph1) [trial:2], NCT(OLX75016 Ph1) [trial:1], NCT(OLX72021 Ph1b/2a) [trial:3]</p>
+<p><strong>DART</strong>: 사업보고서 2025.12 ([info:2815]), 주주총회소집공고 ([info:2819])</p>
+<p><strong>Deals</strong>: Lilly L/O ($630M, 2025-02-07) [deal:1], L&#x27;Oréal Collaboration (2025-06-15) [deal:2], Thea Pharma (€10.6M, 2024-06-01) [deal:29], Hansoh ($226.5M, 2021-10-15) [deal:27]</p>
+<p><strong>External URLs</strong>:</p>
+<ul>
+<li>[Korea Biomed — OLX301A Ph1 US](https://www.koreabiomed.com/news/articleView.html?idxno=29577)</li>
+<li>[이데일리 — BCVA 9.9글자 개선](https://www.edaily.co.kr)</li>
+<li>[Fierce Biotech — Lilly $630M OliX deal](https://www.fiercebiotech.com/biotech/eli-lilly-inks-duo-deals-teaming-advancell-olix-push-deeper-radiopharma-mash)</li>
+<li>[Arrowhead ARO-INHBE/ALK7 interim data (2026-01-06)](https://arrowheadpharma.com/news-press/arrowhead-pharmaceuticals-announces-interim-clinical-data-on-rnai-based-obesity-candidates-showing-weight-loss-in-obese-patients-with-diabetes-and-improved-measures-of-body-composition/)</li>
+<li>[STAT News — Arrowhead fat reduction](https://www.statnews.com/2026/01/06/arrowhead-pharmaceuticals-gene-silencing-drug-cuts-fat-study-finds/)</li>
+</ul>
+<hr>
+<p></code>``json:analysis_result</p>
+<p>{</p>
+<p>&quot;connections&quot;: [</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 1856, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 1,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;OLX301A 미국 물질특허 등록은 글로벌 IP 보호 강화로 2차 기술이전 협상력 상승 — Bull case cond:2/cond:11 trigger 근접&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3827, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 1,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;OLX301A Ph1 건성AMD BCVA 최대 +9.9자 효능 신호 — Bull case cond:2 실현 확률 상승, 7.2조 Dry AMD 시장 진입 가시성&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 2230, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 3,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;moderate&quot;,</p>
+<p>&quot;description&quot;: &quot;Thea Pharma 1차 마일스톤 기술료 수령 — Base case 파트너링 진전 신호, 매출 인식 확정&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 2171, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 1,</p>
+<p>&quot;relation_type&quot;: &quot;validates&quot;, &quot;strength&quot;: &quot;moderate&quot;,</p>
+<p>&quot;description&quot;: &quot;Bio-Europe Spring 2026 참가 및 추가 기술이전 논의 — cond:22 파트너링 진전 근거&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3592, &quot;target_type&quot;: &quot;pipeline&quot;, &quot;target_id&quot;: 4,</p>
+<p>&quot;relation_type&quot;: &quot;impacts&quot;, &quot;strength&quot;: &quot;moderate&quot;,</p>
+<p>&quot;description&quot;: &quot;식약처 Finasteride/Dutasteride 안전성 경고 강화 — 비호르몬 AGA 카테고리(OLX104C)에 구조적 유리&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;competitor&quot;, &quot;source_id&quot;: 133, &quot;target_type&quot;: &quot;pipeline&quot;, &quot;target_id&quot;: 40,</p>
+<p>&quot;relation_type&quot;: &quot;competes_with&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;Arrowhead ARO-INHBE 2026.01 공개 데이터(체중감소 2배, 내장지방 -23.2%, 간지방 -76.7%)는 올릭스 ALK7 비만 프로그램의 best-in-class 포지션 실현 난항&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;competitor&quot;, &quot;source_id&quot;: 134, &quot;target_type&quot;: &quot;pipeline&quot;, &quot;target_id&quot;: 40,</p>
+<p>&quot;relation_type&quot;: &quot;competes_with&quot;, &quot;strength&quot;: &quot;strong&quot;,</p>
+<p>&quot;description&quot;: &quot;Arrowhead ARO-ALK7 Ph2 ALK7 mRNA -88% knockdown 입증 — 올릭스 ALK7은 Preclinical 단계로 5년 이상 지연&quot;},</p>
+<p>{&quot;source_type&quot;: &quot;information_item&quot;, &quot;source_id&quot;: 3888, &quot;target_type&quot;: &quot;thesis&quot;, &quot;target_id&quot;: 2,</p>
+<p>&quot;relation_type&quot;: &quot;relates_to&quot;, &quot;strength&quot;: &quot;weak&quot;,</p>
+<p>&quot;description&quot;: &quot;올릭스 -5.04% 하락 거래 — 시총 과열 구간 되돌림 조짐 관찰 (cond:20 근접)&quot;}</p>
+<p>],</p>
+<p>&quot;thesis_changes&quot;: [],</p>
+<p>&quot;condition_updates&quot;: [</p>
+<p>{&quot;thesis_id&quot;: 1, &quot;condition_id&quot;: 4, &quot;old_status&quot;: &quot;partial&quot;, &quot;new_status&quot;: &quot;unmet&quot;,</p>
+<p>&quot;reasoning&quot;: &quot;Arrowhead ARO-INHBE + tirzepatide 병용 체중감소 2배·내장지방 -23.2% 공개(2026-01). 비만 적응증 확대 시장 선점 당해 어려움 — partial 정당화 근거 약화, unmet 하향&quot;},</p>
+<p>{&quot;thesis_id&quot;: 3, &quot;condition_id&quot;: 22, &quot;old_status&quot;: &quot;partial&quot;, &quot;new_status&quot;: &quot;partial&quot;,</p>
+<p>&quot;reasoning&quot;: &quot;OLX301A 미국 물질특허 등록(2026-04), Thea 1차 마일스톤 수령, Bio-Europe Spring 참가 등 파트너링 진전 신호 누적 — partial 유지이나 강도 상승. 계약 체결 시 met 전환 대기&quot;},</p>
+<p>{&quot;thesis_id&quot;: 1, &quot;condition_id&quot;: 2, &quot;old_status&quot;: &quot;partial&quot;, &quot;new_status&quot;: &quot;partial&quot;,</p>
+<p>&quot;reasoning&quot;: &quot;OLX301A BCVA +9.9자 및 미국 특허 등록으로 협상력 강화. 복수 빅파마 파트너링 논의 중이나 계약 미체결 — partial 강화 유지&quot;}</p>
+<p>]</p>
+<p>}</p>
+<p><pre><code class="lang-">
+## 브리핑
+
+**올릭스(226950) 2026-04-18 딥리서치**: OLX301A Ph1 건성AMD에서 **BCVA 최대 +9.9자 개선** 효능 신호와 **미국 물질특허 등록**으로 2차 기술이전 협상력이 실질적으로 강화되었다. Thea Pharma 1차 마일스톤 수령과 Bio-Europe Spring 참가는 파트너링 파이프라인이 작동함을 시사. 그러나 **Arrowhead ARO-INHBE/ALK7이 2026.01 체중감소 2배·내장지방 -23.2% 데이터를 공개**하며 올릭스 비만 확장(ALK7) 스토리를 크게 압박 — Bull case `비만 적응증 확대` 조건을 **partial → unmet으로 하향** 권고. 릴리 딜 기반 현금 1,323억 + OLX702A 비용 릴리 전액 부담으로 burn-rate 안정권 확보. **2026 H2 OLX702A Ph1 탑라인이 최대 변곡점** (성공 시 릴리 Ph2 진입 → 개발 마일스톤 인식, 실패 시 반환 리스크). 컨센서스 목표가 16만원 대비 현재 19.8만원은 **19% 프리미엄** — rNPV 계산상 50%+ 밸류에이션 프리미엄 반영된 상태로, 촉매 이행 실패 시 12~14만 되돌림 가능. *지금 지켜봐야 할 것*: ①OLX301A 2차 L/O 서명, ②OLX702A 안전성 프로파일, ③CPS 전환 일정.
+
+Sources:
+- [Korea Biomed — OLX301A demonstrates safety in US phase 1](https://www.koreabiomed.com/news/articleView.html?idxno=29577)
+- [Fierce Biotech — Lilly OliX $630M deal](https://www.fiercebiotech.com/biotech/eli-lilly-inks-duo-deals-teaming-advancell-olix-push-deeper-radiopharma-mash)
+- [Arrowhead ARO-INHBE/ALK7 Interim Data](https://arrowheadpharma.com/news-press/arrowhead-pharmaceuticals-announces-interim-clinical-data-on-rnai-based-obesity-candidates-showing-weight-loss-in-obese-patients-with-diabetes-and-improved-measures-of-body-composition/)
+- [STAT News — Arrowhead gene-silencing obesity data](https://www.statnews.com/2026/01/06/arrowhead-pharmaceuticals-gene-silencing-drug-cuts-fat-study-finds/)
+- [히트뉴스 — OLX301A 미국 물질특허](https://www.hitnews.co.kr/news/articleView.html?idxno=75093)
+
+</code></pre></p>
+<p>&lt;/details&gt;</p>
+</body>
+</html>
